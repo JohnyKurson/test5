@@ -1,10 +1,9 @@
 package zad1;
 
-import java.io.IOException;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         ObjectContainer<Person> peopleFromWarsaw = new ObjectContainer<>(p -> p.getCity().equals("Warsaw"));
 
         peopleFromWarsaw.add(new Person("Jan", "Warsaw", 30));
@@ -37,9 +36,6 @@ peopleFromWarsaw.removeIf(p -> p.getAge() > 50); // powinno nam usuwac ludzi spe
 //tu naturalnie mozesz stosowac zapis do pliku bo wymaga tego polecenie
 peopleFromWarsaw.storeToFile("youngPeopleFromWarsaw.txt", p -> p.getAge() < 30, p -> p.getName()+";"+p.getAge()+";"+p.getCity());
 //metoda powinna zapisac obiekty do pliku z pierwszego argumenty metody, tylko te co spelniaja drugi warunek metody, w formacie z trzeciego warunku metody.
-
-
-
      */
 
 

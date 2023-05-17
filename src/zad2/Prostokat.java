@@ -36,7 +36,7 @@ public class Prostokat implements Figura{
 
     @Override
     public String toString() {
-        return "Prostokat: " +
+        return "Prostokąt: " +
                 "Bok A: " + bok1 +
                 ", Bok B: " + bok2;
     }

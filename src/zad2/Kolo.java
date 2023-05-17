@@ -27,7 +27,7 @@ public class Kolo implements Figura{
 
     @Override
     public String toString() {
-        return "Kolo:" +
+        return "Koło:" +
                 " Promień: " + promien;
     }
 }

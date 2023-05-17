@@ -15,6 +15,7 @@ public class ObjectContainer<T> {
         this.objects = new ArrayList<>();
         this.condition = condition;
     }
+
     public boolean add(T object) {
         if (condition.test(object)) {
             return objects.add(object);
@@ -37,7 +38,7 @@ public class ObjectContainer<T> {
         return objects.removeIf(filter);
     }
 
-    public void storeToFile(String fileName, Predicate<T> filter, ObjectFormatter<T> formatter) throws IOException {
+    public void storeToFile(String fileName, Predicate<T> filter, ObjectFormatter<T> formatter) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (T object : objects) {
                 if (filter.test(object)) {
@@ -46,8 +47,11 @@ public class ObjectContainer<T> {
                     writer.newLine();
                 }
             }
+        } catch (IOException e) {
+            throw new RuntimeException("Błąd podczas zapisu do pliku: " + fileName, e);
         }
     }
+
 
     public List<T> getObjects() {
         return new ArrayList<>(objects);
